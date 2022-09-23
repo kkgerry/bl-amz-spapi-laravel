@@ -122,7 +122,7 @@ Feature Requests & Pull Requests are very welcome!
 
 # Notes
 
-If you are looking for a complete Repricing & FBA-Reimbursement solution, you might want to consider giving [Kkgerry.com](https://www.clousale.com) a shot.
+If you are looking for a complete Repricing & FBA-Reimbursement solution, you might want to consider giving [gerrypeng.com](https://www.gerrypeng.com) a shot.
 
 # Thanks
 
