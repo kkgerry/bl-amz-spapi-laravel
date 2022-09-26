@@ -2,7 +2,7 @@
 /**
  * CatalogApi.
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author   Stefan Neuhaus / Kkgerry
  */
 
 /**
@@ -13,13 +13,13 @@
  * OpenAPI spec version: v0
  */
 
-namespace ClouSale\AmazonSellingPartnerAPI\Api;
+namespace Kkgerry\AmazonSellingPartnerAPI\Api;
 
-use ClouSale\AmazonSellingPartnerAPI\ApiException;
-use ClouSale\AmazonSellingPartnerAPI\Configuration;
-use ClouSale\AmazonSellingPartnerAPI\HeaderSelector;
-use ClouSale\AmazonSellingPartnerAPI\Helpers\SellingPartnerApiRequest;
-use ClouSale\AmazonSellingPartnerAPI\ObjectSerializer;
+use Kkgerry\AmazonSellingPartnerAPI\ApiException;
+use Kkgerry\AmazonSellingPartnerAPI\Configuration;
+use Kkgerry\AmazonSellingPartnerAPI\HeaderSelector;
+use Kkgerry\AmazonSellingPartnerAPI\Helpers\SellingPartnerApiRequest;
+use Kkgerry\AmazonSellingPartnerAPI\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Request;
@@ -28,7 +28,7 @@ use InvalidArgumentException;
 /**
  * CatalogApi Class Doc Comment.
  *
- * @author   Stefan Neuhaus / ClouSale
+ * @author   Stefan Neuhaus / Kkgerry
  */
 class CatalogApi
 {
@@ -73,7 +73,7 @@ class CatalogApi
      * @throws ApiException             on non-2xx response
      * @throws InvalidArgumentException
      *
-     * @return \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogItemResponse
+     * @return \Kkgerry\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogItemResponse
      */
     public function getCatalogItem($marketplace_id, $asin, $includedData=null)
     {
@@ -89,7 +89,7 @@ class CatalogApi
      * @throws ApiException             on non-2xx response
      * @throws InvalidArgumentException
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogItemResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Kkgerry\AmazonSellingPartnerAPI\Models\Catalog\GetCatalogItemResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCatalogItemWithHttpInfo($marketplace_id, $asin, $includedData=null)
     {
@@ -188,19 +188,18 @@ class CatalogApi
      * Operation listCatalogItems.
      *
      * @param string $marketplace_id   A marketplace identifier. Specifies the marketplace for which items are returned. (required)
-     * @param string $pageToken A token to fetch a certain page when there are multiple pages worth of results.
-     * @param string $identifiersType   Type of product identifiers to search the Amazon catalog for. Note: Required when identifiers are provided. [ASIN, EAN, GTIN, ISBN, JAN, MINSAN, SKU, UPC]
-     * @param string|array $identifiers   A comma-delimited list of product identifiers to search the Amazon catalog for. Note: Cannot be used with keywords. Max count : 20
-     * @param string|array $includedData A comma-delimited list of data sets to include in the response. Default: summaries.
-     * @param string $sellerId  A selling partner identifier, such as a seller account or vendor code. Note: Required when identifiersType is SKU.
-     * @param string|array $keywords A comma-delimited list of words to search the Amazon catalog for. Note: Cannot be used with identifiers.    Max count : 20
-     * @param string|array $brandNames    A comma-delimited list of brand names to limit the search for keywords-based queries. Note: Cannot be used with identifiers.
-     * @param string|array $classificationIds   A comma-delimited list of classification identifiers to limit the search for keywords-based queries. Note: Cannot be used with identifiers.
-     * @param int $pageSize   Number of results to be returned per page. Maximum : 20
+     * @param string $query            Keyword(s) to use to search for items in the catalog. Example: &#x27;harry potter books&#x27;. (optional)
+     * @param string $query_context_id An identifier for the context within which the given search will be performed. A marketplace might provide mechanisms for constraining a search to a subset of potential items. For example, the retail marketplace allows queries to be constrained to a specific category. The QueryContextId parameter specifies such a subset. If it is omitted, the search will be performed using the default context for the marketplace, which will typically contain the largest set of items. (optional)
+     * @param string $seller_sku       Used to identify an item in the given marketplace. SellerSKU is qualified by the seller&#x27;s SellerId, which is included with every operation that you submit. (optional)
+     * @param string $upc              A 12-digit bar code used for retail packaging. (optional)
+     * @param string $ean              A European article number that uniquely identifies the catalog item, manufacturer, and its attributes. (optional)
+     * @param string $isbn             The unique commercial book identifier used to identify books internationally. (optional)
+     * @param string $jan              A Japanese article number that uniquely identifies the product, manufacturer, and its attributes. (optional)
      *
      * @throws ApiException             on non-2xx response
      * @throws InvalidArgumentException
      *
+     * @return \Kkgerry\AmazonSellingPartnerAPI\Models\Catalog\ListCatalogItemsResponse
      */
     public function listCatalogItems($marketplace_id, $pageToken=null, $identifiersType = null, $identifiers = null, $includedData = null, $sellerId = null, $keywords = null, $brandNames = null, $classificationIds = null,$pageSize=20)
     {
@@ -222,7 +221,7 @@ class CatalogApi
      * @throws ApiException             on non-2xx response
      * @throws InvalidArgumentException
      *
-     * @return array of \ClouSale\AmazonSellingPartnerAPI\Models\Catalog\ListCatalogItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Kkgerry\AmazonSellingPartnerAPI\Models\Catalog\ListCatalogItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function listCatalogItemsWithHttpInfo($marketplace_id,$pageToken=null, $identifiersType = null, $identifiers = null, $includedData = null, $sellerId = null, $keywords = null, $brandNames = null, $classificationIds = null,$pageSize=null)
     {

@@ -19,6 +19,7 @@ use Kkgerry\AmazonSellingPartnerAPI\ApiException;
 use Kkgerry\AmazonSellingPartnerAPI\Configuration;
 use Kkgerry\AmazonSellingPartnerAPI\HeaderSelector;
 use Kkgerry\AmazonSellingPartnerAPI\Helpers\SellingPartnerApiRequest;
+use Kkgerry\AmazonSellingPartnerAPI\Models\Reports\CreateReportSpecification;
 use Kkgerry\AmazonSellingPartnerAPI\ObjectSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
